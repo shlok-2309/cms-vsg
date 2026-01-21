@@ -1,0 +1,57 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model User {
+  id         Int       @id @default(autoincrement())
+  email      String    @unique
+  name       String
+  password   String
+  isActive   Boolean
+  createDate DateTime  @default(now())
+  updateDate DateTime?
+}
+
+model Hero_Section {
+  id          Int       @id @default(autoincrement())
+  title       String
+  description String
+  image       String
+  isActive    Boolean
+  CrBy        Int
+  createDate  DateTime  @default(now())
+  updateDate  DateTime?
+}
+
+model Contact {
+  id         Int      @id @default(autoincrement())
+  name       String
+  email      String
+  mobile     String
+  message    String
+  createDate DateTime @default(now())
+}
+
+model Design {
+  id          Int      @id @default(autoincrement())
+  title       String
+  description String
+  width       Int
+  height      Int
+  image       String
+  facing      String
+  isActive    Boolean  @default(true)
+  crby        Int
+  createdDate DateTime @default(now())
+}
