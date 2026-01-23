@@ -13,8 +13,8 @@ export async function POST(req: Request) {
   });
 
 
-  const pass = await bcrypt.hash("admin@123", 10)
-  console.log("password", pass);
+  // const pass = await bcrypt.hash("admin@123", 10)
+  // console.log("password", pass);
 
 
   if (!user)
