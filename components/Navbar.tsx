@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import Link from "next/link";
 
 export default function Navbar() {
     const [scrolled, setScrolled] = useState(false);
@@ -17,13 +18,13 @@ export default function Navbar() {
     return (
         <nav
             className={`fixed top-0 w-full z-50 transition-all duration-300
-            ${scrolled ? "bg-black text-white shadow-lg" : "text-white"}
-            `}
+      ${scrolled ? "bg-black text-white shadow-lg" : "text-white"}
+      `}
         >
             <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
 
                 {/* Logo */}
-                <a href="/" className="flex items-center gap-3">
+                <Link href="/" className="flex items-center gap-3">
                     <Image
                         src="/logo.jpg"
                         alt="Vidya Shanti Groups"
@@ -34,21 +35,26 @@ export default function Navbar() {
                     <h3 className="text-lg font-semibold tracking-wide">
                         Vidya Shanti Groups
                     </h3>
-                </a>
+                </Link>
 
                 {/* Desktop Menu */}
                 <div className="hidden md:flex space-x-8 text-sm font-medium">
-                    {["Home", "About", "Designs", "Testimonials", "Contact"].map(
-                        (item) => (
-                            <a
-                                key={item}
-                                href={`#${item.toLowerCase()}`}
-                                className="hover:text-yellow-400 hover:underline transition"
-                            >
-                                {item}
-                            </a>
-                        )
-                    )}
+                    {[
+                        { name: "Home", href: "/" },
+                        { name: "About", href: "//#about" },
+                        { name: "Designs", href: "#designs" },
+                        { name: "Testimonials", href: "//#testimonials" },
+                        { name: "Careers", href: "/career" }, // ✅ NEW
+                        { name: "Contact", href: "#contact" },
+                    ].map((item) => (
+                        <Link
+                            key={item.name}
+                            href={item.href}
+                            className="hover:text-yellow-400 hover:underline transition"
+                        >
+                            {item.name}
+                        </Link>
+                    ))}
                 </div>
 
                 {/* Mobile Hamburger */}
@@ -67,18 +73,23 @@ export default function Navbar() {
             {/* Mobile Menu */}
             {menuOpen && (
                 <div className="md:hidden bg-black px-6 pb-4 space-y-4 text-sm">
-                    {["Home", "About", "Designs", "Testimonials", "Contact"].map(
-                        (item) => (
-                            <a
-                                key={item}
-                                href={`#${item.toLowerCase()}`}
-                                className="block hover:text-yellow-400"
-                                onClick={() => setMenuOpen(false)}
-                            >
-                                {item}
-                            </a>
-                        )
-                    )}
+                    {[
+                        { name: "Home", href: "#home" },
+                        { name: "About", href: "#about" },
+                        { name: "Designs", href: "#designs" },
+                        { name: "Testimonials", href: "#testimonials" },
+                        { name: "Careers", href: "/careers" }, // ✅ NEW
+                        { name: "Contact", href: "#contact" },
+                    ].map((item) => (
+                        <Link
+                            key={item.name}
+                            href={item.href}
+                            className="block hover:text-yellow-400"
+                            onClick={() => setMenuOpen(false)}
+                        >
+                            {item.name}
+                        </Link>
+                    ))}
                 </div>
             )}
         </nav>
