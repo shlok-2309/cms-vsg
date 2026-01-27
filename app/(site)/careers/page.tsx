@@ -1,5 +1,6 @@
 "use client";
 
+import ApplyJobModal from "@/components/ApplyJobModal";
 import Contact from "@/components/Contact";
 import Image from "next/image";
 import { useEffect, useState } from "react";
@@ -25,6 +26,9 @@ interface Career {
 
 export default function CareersPage() {
   const [jobs, setJobs] = useState<Career[]>([]);
+  const [openModal, setOpenModal] = useState(false);
+  const [selectedJob, setSelectedJob] = useState<Career | null>(null);
+
 
   async function getCareers() {
     const res = await fetch("/api/admin/careers");
@@ -99,11 +103,15 @@ export default function CareersPage() {
                       Experience Required: {job.year_of_experience}+ Years <b>|</b> Apply By: {new Date(job.applied_date).toLocaleDateString()}
 
                     </p>
-
-
                   </div>
 
-                  <button className="px-6 py-2 bg-black text-white rounded-md hover:bg-gray-800 transition">
+                  <button
+                    onClick={() => {
+                      setSelectedJob(job);
+                      setOpenModal(true);
+                    }}
+                    className="px-6 py-2 bg-black text-white rounded-md hover:bg-gray-800 transition"
+                  >
                     Apply Now
                   </button>
                 </div>
@@ -118,6 +126,16 @@ export default function CareersPage() {
       </section>
 
       <Contact />
+
+      {selectedJob && (
+        <ApplyJobModal
+          isOpen={openModal}
+          onClose={() => setOpenModal(false)}
+          jobTitle={selectedJob.job_Title}
+          careerId={selectedJob.id}
+        />
+      )}
+
     </main>
   );
 }

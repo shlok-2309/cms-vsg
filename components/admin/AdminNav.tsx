@@ -38,7 +38,7 @@ export default function AdminNav() {
           <NavItem href="/my-admin/contactus" icon={<FaEnvelope />} label="Contact-US" />
           <NavItem href="/my-admin/design_list" icon={<FaPalette />} label="Designs" />
           <NavItem href="/my-admin/hero-section" icon={<FaImages />} label="Hero Section" />
-          <NavItem href="/my-admin/user-list" icon={<FaUsers />} label="UserList" />
+          <NavItem href="/my-admin/job_applications" icon={<FaUsers />} label="Applications" />
 
           {/* Divider */}
           <span className="mx-3 text-gray-500">|</span>
