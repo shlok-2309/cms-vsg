@@ -20,6 +20,13 @@ import { useEffect, useState } from "react";
 //     },
 // ];
 
+/*
+    title, description, image, isActive, CrBy, createDate, updateDate
+    "Designing Your Dream Home", "Modern, strong and beautiful house designs made with precision.", "/images/home1.png", true, 1, 2026-01 - 26T10:00:00,
+    "Professional Building Planning", "Complete civil engineering solutions for residential projects.", "/images/home2.png", true, 1, 2026-01 - 26T10:05:00,
+    "5+ Years of Trusted Experience", "Quality planning and design you can rely on.", "/images/home3.webp", true, 1, 2026-01 - 26T10: 10:00,
+*/
+
 interface HeroData {
     id: number;
     title: string;

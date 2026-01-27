@@ -16,6 +16,8 @@ export async function POST(req: Request) {
   // const pass = await bcrypt.hash("admin@123", 10)
   // console.log("password", pass);
 
+  // $2b$10$Ct8X9sr3JaTsGkCnSaKddOLRTZg.nbPXZGouGRMVavDxsi9sCbAZq
+
 
   if (!user)
     return NextResponse.json({ message: "User not found" }, { status: 401 });

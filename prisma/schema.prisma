@@ -55,3 +55,28 @@ model Design {
   crby        Int
   createdDate DateTime @default(now())
 }
+
+model Career {
+  id                 Int      @id @default(autoincrement())
+  job_Title          String
+  description        String
+  applied_date       DateTime
+  year_of_experience Int
+  isActive           Boolean  @default(true)
+  createdDate        DateTime @default(now())
+
+  applies AppliedJobs[]
+}
+
+model AppliedJobs {
+  id                 Int      @id @default(autoincrement())
+  name               String
+  email              String
+  phone              String
+  resume             String
+  job_Title          String
+  year_of_experience String
+  createdDate        DateTime @default(now())
+  careerId           Int
+  career             Career   @relation(fields: [careerId], references: [id])
+}

@@ -44,7 +44,7 @@ export default function Navbar() {
                         { name: "About", href: "//#about" },
                         { name: "Designs", href: "#designs" },
                         { name: "Testimonials", href: "//#testimonials" },
-                        { name: "Careers", href: "/career" }, // ✅ NEW
+                        { name: "Careers", href: "/careers" }, // ✅ NEW
                         { name: "Contact", href: "#contact" },
                     ].map((item) => (
                         <Link

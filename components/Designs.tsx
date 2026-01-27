@@ -2,6 +2,19 @@
 
 import React, { useEffect, useState } from 'react'
 
+/*
+  title, description, width, height, image, facing, isActive, crby
+  "Modern 2BHK House Design", "A sleek and modern 2BHK home design with efficient space planning.", 30, 40, "/images/design1.jpg", "East", true, 1
+  "Luxury Villa Elevation", "Premium villa elevation with contemporary architectural style.", 50, 60, "/images/design2.jpg", "West", true, 1
+  "Compact Budget Home", "Affordable compact home design ideal for small families.", 25, 35, "/images/design3.jpg", "North", true, 1
+  "Duplex House Design", "Spacious duplex house with modern exterior and balcony.", 40, 50, "/images/design4.jpg", "South", true, 1
+  "Traditional Indian Home", "Classic Indian-style home with vastu-compliant layout.", 30, 45, "/images/design5.jpg", "East", true, 1
+  "Single Floor House Plan", "Simple single-floor house plan with optimal ventilation.", 28, 38, "/images/design6.jpg", "North", true, 1
+  "Contemporary Bungalow", "Stylish bungalow design with open spaces and greenery.", 45, 55, "/images/design7.jpg", "West", true, 1
+  "Minimalist Home Design", "Clean and minimalist design focusing on functionality.", 32, 42, "/images/design8.jpg", "South", true, 1
+  "Corner Plot House Design", "Specially designed home for corner plots with dual access.", 35, 45, "/images/design9.jpg", "East", true, 1
+*/
+
 interface DesignData {
   id?: number;
   title: string;
